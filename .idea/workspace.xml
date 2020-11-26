@@ -36,8 +36,9 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Smh">
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="smh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +80,6 @@
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
   </component>
   <component name="RunManager" selected="Cargo.Publish">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Check" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="check" />
@@ -133,10 +129,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Cargo.Test" />
+      <item itemvalue="Cargo.Check" />
       <item itemvalue="Cargo.Package" />
       <item itemvalue="Cargo.Publish" />
-      <item itemvalue="Cargo.Check" />
+      <item itemvalue="Cargo.Test" />
     </list>
   </component>
   <component name="RustProjectSettings">
@@ -152,7 +148,8 @@
       <option name="presentableId" value="Default" />
       <updated>1606313591510</updated>
       <workItem from="1606313592772" duration="6386000" />
-      <workItem from="1606376653522" duration="7416000" />
+      <workItem from="1606376653522" duration="8108000" />
+      <workItem from="1606385066395" duration="57000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -189,7 +186,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606384039237</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added description">
+      <created>1606384087084</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1606384087084</updated>
+    </task>
+    <task id="LOCAL-00007" summary="smh">
+      <created>1606384211592</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1606384211592</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +236,9 @@
     <MESSAGE value="Working on publishing on crates.io" />
     <MESSAGE value="Made Console `pub`" />
     <MESSAGE value="Smh" />
-    <option name="LAST_COMMIT_MESSAGE" value="Smh" />
+    <MESSAGE value="Added description" />
+    <MESSAGE value="smh" />
+    <option name="LAST_COMMIT_MESSAGE" value="smh" />
   </component>
   <component name="WindowStateProjectService">
     <state x="141" y="34" width="1084" height="734" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606384021130">
@@ -240,30 +253,30 @@
       <screen x="0" y="34" width="1366" height="734" />
     </state>
     <state x="100" y="134" width="1166" height="534" key="DiffContextDialog/0.34.1366.734@0.34.1366.734" timestamp="1606383222579" />
-    <state width="1320" height="277" key="GridCell.Tab.0.bottom" timestamp="1606384046191">
+    <state width="1320" height="277" key="GridCell.Tab.0.bottom" timestamp="1606384766597">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.bottom/0.34.1366.734@0.34.1366.734" timestamp="1606384046191" />
-    <state width="1320" height="277" key="GridCell.Tab.0.center" timestamp="1606384046191">
+    <state width="1320" height="277" key="GridCell.Tab.0.bottom/0.34.1366.734@0.34.1366.734" timestamp="1606384766597" />
+    <state width="1320" height="277" key="GridCell.Tab.0.center" timestamp="1606384766597">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.center/0.34.1366.734@0.34.1366.734" timestamp="1606384046191" />
-    <state width="1320" height="277" key="GridCell.Tab.0.left" timestamp="1606384046191">
+    <state width="1320" height="277" key="GridCell.Tab.0.center/0.34.1366.734@0.34.1366.734" timestamp="1606384766597" />
+    <state width="1320" height="277" key="GridCell.Tab.0.left" timestamp="1606384766596">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.left/0.34.1366.734@0.34.1366.734" timestamp="1606384046191" />
-    <state width="1320" height="277" key="GridCell.Tab.0.right" timestamp="1606384046191">
+    <state width="1320" height="277" key="GridCell.Tab.0.left/0.34.1366.734@0.34.1366.734" timestamp="1606384766596" />
+    <state width="1320" height="277" key="GridCell.Tab.0.right" timestamp="1606384766597">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.right/0.34.1366.734@0.34.1366.734" timestamp="1606384046191" />
+    <state width="1320" height="277" key="GridCell.Tab.0.right/0.34.1366.734@0.34.1366.734" timestamp="1606384766597" />
     <state x="530" y="315" width="295" height="171" key="VCS.ChangelistChooser" timestamp="1606383048283">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
     <state x="530" y="315" width="295" height="171" key="VCS.ChangelistChooser/0.34.1366.734@0.34.1366.734" timestamp="1606383048283" />
-    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1606384042274">
+    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1606384220067">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2/0.34.1366.734@0.34.1366.734" timestamp="1606384042274" />
+    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2/0.34.1366.734@0.34.1366.734" timestamp="1606384220067" />
     <state x="559" y="118" width="238" height="566" key="VcsDiffUtil.ChangesDialog" timestamp="1606382925961">
       <screen x="0" y="34" width="1366" height="734" />
     </state>

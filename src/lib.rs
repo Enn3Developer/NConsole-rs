@@ -4,6 +4,8 @@ use std::io;
 
 mod traits;
 
+pub use crate::traits::*;
+
 pub struct CommandsRegister {
     commands: Vec<Box<dyn Command>>,
 }
