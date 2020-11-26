@@ -129,10 +129,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Cargo.Check" />
+      <item itemvalue="Cargo.Test" />
       <item itemvalue="Cargo.Package" />
       <item itemvalue="Cargo.Publish" />
-      <item itemvalue="Cargo.Test" />
+      <item itemvalue="Cargo.Check" />
     </list>
   </component>
   <component name="RustProjectSettings">
