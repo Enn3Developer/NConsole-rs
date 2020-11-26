@@ -86,7 +86,7 @@ pub enum LogTypes {
     ERR,
 }
 
-struct Console {
+pub struct Console {
     input_prefix: String,
     commands_register: CommandsRegister,
 }

@@ -36,9 +36,9 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Fixed a typo">
+    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Working on publishing on crates.io">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +140,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606313591510</updated>
       <workItem from="1606313592772" duration="6386000" />
-      <workItem from="1606376653522" duration="7226000" />
+      <workItem from="1606376653522" duration="7309000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -156,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606383242214</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Working on publishing on crates.io">
+      <created>1606383912914</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606383912914</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +196,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added simple functionality" />
     <MESSAGE value="Fixed a typo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a typo" />
+    <MESSAGE value="Working on publishing on crates.io" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on publishing on crates.io" />
   </component>
   <component name="WindowStateProjectService">
     <state x="141" y="36" width="1084" height="732" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606383883300">
@@ -204,30 +212,30 @@
       <screen x="0" y="34" width="1366" height="734" />
     </state>
     <state x="100" y="134" width="1166" height="534" key="DiffContextDialog/0.34.1366.734@0.34.1366.734" timestamp="1606383222579" />
-    <state width="1320" height="277" key="GridCell.Tab.0.bottom" timestamp="1606382392867">
+    <state width="1320" height="277" key="GridCell.Tab.0.bottom" timestamp="1606383928036">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.bottom/0.34.1366.734@0.34.1366.734" timestamp="1606382392867" />
-    <state width="1320" height="277" key="GridCell.Tab.0.center" timestamp="1606382392866">
+    <state width="1320" height="277" key="GridCell.Tab.0.bottom/0.34.1366.734@0.34.1366.734" timestamp="1606383928036" />
+    <state width="1320" height="277" key="GridCell.Tab.0.center" timestamp="1606383928036">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.center/0.34.1366.734@0.34.1366.734" timestamp="1606382392866" />
-    <state width="1320" height="277" key="GridCell.Tab.0.left" timestamp="1606382392866">
+    <state width="1320" height="277" key="GridCell.Tab.0.center/0.34.1366.734@0.34.1366.734" timestamp="1606383928036" />
+    <state width="1320" height="277" key="GridCell.Tab.0.left" timestamp="1606383928035">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.left/0.34.1366.734@0.34.1366.734" timestamp="1606382392866" />
-    <state width="1320" height="277" key="GridCell.Tab.0.right" timestamp="1606382392867">
+    <state width="1320" height="277" key="GridCell.Tab.0.left/0.34.1366.734@0.34.1366.734" timestamp="1606383928035" />
+    <state width="1320" height="277" key="GridCell.Tab.0.right" timestamp="1606383928036">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.right/0.34.1366.734@0.34.1366.734" timestamp="1606382392867" />
+    <state width="1320" height="277" key="GridCell.Tab.0.right/0.34.1366.734@0.34.1366.734" timestamp="1606383928036" />
     <state x="530" y="315" width="295" height="171" key="VCS.ChangelistChooser" timestamp="1606383048283">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
     <state x="530" y="315" width="295" height="171" key="VCS.ChangelistChooser/0.34.1366.734@0.34.1366.734" timestamp="1606383048283" />
-    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1606383247219">
+    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1606383920347">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
-    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2/0.34.1366.734@0.34.1366.734" timestamp="1606383247219" />
+    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2/0.34.1366.734@0.34.1366.734" timestamp="1606383920347" />
     <state x="559" y="118" width="238" height="566" key="VcsDiffUtil.ChangesDialog" timestamp="1606382925961">
       <screen x="0" y="34" width="1366" height="734" />
     </state>
