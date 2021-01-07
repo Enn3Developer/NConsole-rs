@@ -115,7 +115,7 @@ impl Console {
             .read_line(&mut input)
             .expect("Failed to read line");
 
-        if input.as_str() == "" {
+        if input.as_str().is_empty() {
             return;
         }
         self.commands_register.check_input(input);
