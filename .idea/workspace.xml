@@ -36,7 +36,7 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Fixed a panic where if the input was void and flushed stdout so now the prompt is working correctly">
+    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Fixed a panic where if the input was void">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
@@ -162,7 +162,7 @@
       <workItem from="1606313592772" duration="6386000" />
       <workItem from="1606376653522" duration="8108000" />
       <workItem from="1606385066395" duration="140000" />
-      <workItem from="1610035403865" duration="2157000" />
+      <workItem from="1610035403865" duration="2277000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -283,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610037302743</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Fixed a panic where if the input was void">
+      <created>1610037572750</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1610037572750</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +331,8 @@
     <MESSAGE value="smh" />
     <MESSAGE value="Now traits are public and not private anymore" />
     <MESSAGE value="Fixed a panic where if the input was void and flushed stdout so now the prompt is working correctly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a panic where if the input was void and flushed stdout so now the prompt is working correctly" />
+    <MESSAGE value="Fixed a panic where if the input was void" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a panic where if the input was void" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
