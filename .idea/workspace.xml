@@ -162,7 +162,7 @@
       <workItem from="1606313592772" duration="6386000" />
       <workItem from="1606376653522" duration="8108000" />
       <workItem from="1606385066395" duration="140000" />
-      <workItem from="1610035403865" duration="2277000" />
+      <workItem from="1610035403865" duration="2443000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -290,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610037572750</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed a panic where if the input was void">
+      <created>1610037686148</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1610037686148</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

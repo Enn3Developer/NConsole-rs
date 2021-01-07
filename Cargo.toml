@@ -1,6 +1,6 @@
 [package]
 name = "nconsole"
-version = "0.1.6"
+version = "0.1.7"
 authors = ["Enn3Developer <arturpeshko39@gmail.com>"]
 license-file = "LICENSE"
 readme = "README.md"
