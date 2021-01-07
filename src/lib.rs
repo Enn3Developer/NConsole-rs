@@ -2,7 +2,7 @@ use crate::traits::Command;
 use colored::*;
 use std::io;
 
-mod traits;
+pub mod traits;
 
 pub use crate::traits::*;
 

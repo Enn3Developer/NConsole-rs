@@ -29,7 +29,7 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
     </configurations>
   </component>
   <component name="CargoProjects">
@@ -73,57 +73,68 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="settings.editor.selected.configurable" value="language.rust" />
   </component>
   <component name="RunManager" selected="Cargo.Publish">
     <configuration name="Check" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
-      <option name="channel" value="DEFAULT" />
       <option name="command" value="check" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
       <method v="2">
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
     <configuration name="Package" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
-      <option name="channel" value="DEFAULT" />
       <option name="command" value="package " />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
       <method v="2">
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
     <configuration name="Publish" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
-      <option name="channel" value="DEFAULT" />
       <option name="command" value="publish " />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
       <method v="2">
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
     <configuration name="Test" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="channel" value="DEFAULT" />
       <option name="command" value="test --package nconsole --lib tests" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="channel" value="DEFAULT" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
       <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
       <method v="2">
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
@@ -136,7 +147,7 @@
     </list>
   </component>
   <component name="RustProjectSettings">
-    <option name="toolchainHomeDirectory" value="$PROJECT_DIR$/../.cargo/bin" />
+    <option name="toolchainHomeDirectory" value="$PROJECT_DIR$/../.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin" />
     <option name="version" value="2" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -149,7 +160,8 @@
       <updated>1606313591510</updated>
       <workItem from="1606313592772" duration="6386000" />
       <workItem from="1606376653522" duration="8108000" />
-      <workItem from="1606385066395" duration="57000" />
+      <workItem from="1606385066395" duration="140000" />
+      <workItem from="1610035403865" duration="147000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -200,7 +212,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606384211592</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed a bug with trait `Command`">
+      <created>1606385160316</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1606385160316</updated>
+    </task>
+    <task id="LOCAL-00009" summary="smh">
+      <created>1606385183332</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1606385183332</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,53 +263,12 @@
     <MESSAGE value="Made Console `pub`" />
     <MESSAGE value="Smh" />
     <MESSAGE value="Added description" />
+    <MESSAGE value="Fixed a bug with trait `Command`" />
     <MESSAGE value="smh" />
     <option name="LAST_COMMIT_MESSAGE" value="smh" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="141" y="34" width="1084" height="734" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606384021130">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state x="141" y="34" width="1084" height="734" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.34.1366.734@0.34.1366.734" timestamp="1606384021130" />
-    <state x="491" y="120" width="374" height="562" key="#com.intellij.ide.util.MemberChooser" timestamp="1606381661689">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state x="491" y="120" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/0.34.1366.734@0.34.1366.734" timestamp="1606381661689" />
-    <state x="100" y="134" width="1166" height="534" key="DiffContextDialog" timestamp="1606383222579">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state x="100" y="134" width="1166" height="534" key="DiffContextDialog/0.34.1366.734@0.34.1366.734" timestamp="1606383222579" />
-    <state width="1320" height="277" key="GridCell.Tab.0.bottom" timestamp="1606384766597">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.bottom/0.34.1366.734@0.34.1366.734" timestamp="1606384766597" />
-    <state width="1320" height="277" key="GridCell.Tab.0.center" timestamp="1606384766597">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.center/0.34.1366.734@0.34.1366.734" timestamp="1606384766597" />
-    <state width="1320" height="277" key="GridCell.Tab.0.left" timestamp="1606384766596">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.left/0.34.1366.734@0.34.1366.734" timestamp="1606384766596" />
-    <state width="1320" height="277" key="GridCell.Tab.0.right" timestamp="1606384766597">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state width="1320" height="277" key="GridCell.Tab.0.right/0.34.1366.734@0.34.1366.734" timestamp="1606384766597" />
-    <state x="530" y="315" width="295" height="171" key="VCS.ChangelistChooser" timestamp="1606383048283">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state x="530" y="315" width="295" height="171" key="VCS.ChangelistChooser/0.34.1366.734@0.34.1366.734" timestamp="1606383048283" />
-    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2" timestamp="1606384220067">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state x="278" y="123" width="800" height="556" key="Vcs.Push.Dialog.v2/0.34.1366.734@0.34.1366.734" timestamp="1606384220067" />
-    <state x="559" y="118" width="238" height="566" key="VcsDiffUtil.ChangesDialog" timestamp="1606382925961">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state x="559" y="118" width="238" height="566" key="VcsDiffUtil.ChangesDialog/0.34.1366.734@0.34.1366.734" timestamp="1606382925961" />
-    <state x="486" y="316" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606383732983">
-      <screen x="0" y="34" width="1366" height="734" />
-    </state>
-    <state x="486" y="316" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.34.1366.734@0.34.1366.734" timestamp="1606383732983" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
