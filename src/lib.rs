@@ -4,6 +4,7 @@ use std::io;
 pub mod traits;
 
 pub use crate::traits::*;
+use std::io::{stdout, Write};
 
 pub struct CommandsRegister {
     commands: Vec<Box<dyn Command>>,
@@ -88,13 +89,13 @@ pub enum LogTypes {
 }
 
 pub struct Console {
-    input_prefix: String,
+    prompt: String,
     commands_register: CommandsRegister,
 }
 
 impl Console {
-    pub fn new(input_prefix: String, commands_register: CommandsRegister) -> Console {
-        Console { input_prefix, commands_register }
+    pub fn new(prompt: String, commands_register: CommandsRegister) -> Console {
+        Console { prompt, commands_register }
     }
 
     pub fn log(log_type: LogTypes, message: String) {
@@ -108,11 +109,15 @@ impl Console {
     pub fn update(&self) {
         let mut input = String::new();
         print!("{}", self.input_prefix);
+        stdout().flush();
 
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read line");
 
+        if input.as_str() == "" {
+            return;
+        }
         self.commands_register.check_input(input);
     }
 }
