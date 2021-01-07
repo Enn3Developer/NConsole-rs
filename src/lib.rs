@@ -108,7 +108,7 @@ impl Console {
 
     pub fn update(&self) {
         let mut input = String::new();
-        print!("{}", self.input_prefix);
+        print!("{}", self.prompt);
         stdout().flush();
 
         io::stdin()
