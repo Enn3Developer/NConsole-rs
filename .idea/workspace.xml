@@ -40,6 +40,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/traits.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/traits.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +163,8 @@
       <workItem from="1606313592772" duration="6386000" />
       <workItem from="1606376653522" duration="8108000" />
       <workItem from="1606385066395" duration="140000" />
-      <workItem from="1610035403865" duration="2443000" />
+      <workItem from="1610035403865" duration="3054000" />
+      <workItem from="1610135347540" duration="1136000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -297,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610037686148</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fixed a panic where if the input was void">
+      <created>1610037851817</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1610037851817</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -7,3 +7,8 @@ pub trait Command {
 
     fn on_command(&self, args: Vec<&str>);
 }
+
+pub trait ErrorHandler {
+    fn input_void(&self);
+    fn wrong_command(&self, command: &str);
+}

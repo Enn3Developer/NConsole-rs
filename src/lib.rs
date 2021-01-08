@@ -1,21 +1,48 @@
 use colored::*;
 use std::io;
+use std::io::{stdout, Write};
 
 pub mod traits;
 
 pub use crate::traits::*;
-use std::io::{stdout, Write};
+
+struct NErrorHandler;
+
+impl NErrorHandler {
+    fn new() -> Self {
+        NErrorHandler
+    }
+}
+
+impl ErrorHandler for NErrorHandler {
+    fn input_void(&self) {
+        unimplemented!()
+    }
+
+    fn wrong_command(&self, command: &str) {
+        Console::log(LogTypes::ERR, format!("{}: not a valid command", command));
+    }
+}
 
 pub struct CommandsRegister {
     commands: Vec<Box<dyn Command>>,
+    error_handler: Box<dyn ErrorHandler>,
 }
 
 impl CommandsRegister {
     pub fn new() -> CommandsRegister {
-        CommandsRegister {commands: vec![]}
+        CommandsRegister {commands: vec![], error_handler: Box::new(NErrorHandler::new()) }
     }
 
-    fn get_command_from_command_name(&self, command_name: &str) -> Option<&Box<dyn Command>> {
+    pub fn get_error_handler(&self) -> &dyn ErrorHandler {
+        self.error_handler.as_ref()
+    }
+
+    pub fn set_error_handler(&mut self, error_handler: impl ErrorHandler + 'static) {
+        self.error_handler = Box::new(error_handler);
+    }
+
+    pub fn get_command_from_command_name(&self, command_name: &str) -> Option<&Box<dyn Command>> {
         let mut command_return = None;
         for command in &self.commands {
            if command.get_command_name() == command_name {
@@ -26,7 +53,7 @@ impl CommandsRegister {
         command_return
     }
 
-    fn get_command_from_command_alias(&self, alias: &str) -> Option<&Box<dyn Command>> {
+    pub fn get_command_from_command_alias(&self, alias: &str) -> Option<&Box<dyn Command>> {
         let mut command_return = None;
         for command in &self.commands {
             if command.get_command_alias().contains(&alias) {
@@ -59,8 +86,7 @@ impl CommandsRegister {
         input = input.to_lowercase();
         let mut input = input.split_whitespace();
 
-        let command_or_alias = input.next()
-            .expect("Input is void");
+        let command_or_alias = input.next().unwrap();
 
         let mut args: Vec<&str> = vec![];
         for arg in input {
@@ -109,16 +135,24 @@ impl Console {
     pub fn update(&self) {
         let mut input = String::new();
         print!("{}", self.prompt);
-        stdout().flush();
+        stdout().flush().unwrap();
 
         io::stdin()
             .read_line(&mut input)
             .expect("Failed to read line");
 
         if input.trim().is_empty() {
+            self.commands_register.get_error_handler().input_void();
             return;
         }
-        self.commands_register.check_input(input);
+        let copy = input.clone();
+        let command = copy.split_ascii_whitespace().next().unwrap();
+
+        let handled = self.commands_register.check_input(input);
+
+        if !handled {
+            self.commands_register.get_error_handler().wrong_command(command);
+        }
     }
 }
 
