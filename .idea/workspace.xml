@@ -36,9 +36,8 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Added error handling and fixing a warning">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Added `print` to Console">
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +162,7 @@
       <workItem from="1606385066395" duration="140000" />
       <workItem from="1610035403865" duration="3054000" />
       <workItem from="1610135347540" duration="1346000" />
-      <workItem from="1610224232428" duration="101000" />
+      <workItem from="1610224232428" duration="153000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -312,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610136518661</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added `print` to Console">
+      <created>1610224380064</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1610224380064</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,7 +361,8 @@
     <MESSAGE value="Fixed a panic where if the input was void and flushed stdout so now the prompt is working correctly" />
     <MESSAGE value="Fixed a panic where if the input was void" />
     <MESSAGE value="Added error handling and fixing a warning" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added error handling and fixing a warning" />
+    <MESSAGE value="Added `print` to Console" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added `print` to Console" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
