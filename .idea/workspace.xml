@@ -36,11 +36,9 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Added `print` to Console">
+    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Added a default `help` command&#10;Made some little changes in the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/traits.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/traits.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +168,7 @@
       <workItem from="1606385066395" duration="140000" />
       <workItem from="1610035403865" duration="3054000" />
       <workItem from="1610135347540" duration="1346000" />
-      <workItem from="1610224232428" duration="2336000" />
+      <workItem from="1610224232428" duration="2440000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -333,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610224388802</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added a default `help` command&#10;Made some little changes in the code">
+      <created>1610226643996</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1610226643996</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +382,8 @@
     <MESSAGE value="Fixed a panic where if the input was void" />
     <MESSAGE value="Added error handling and fixing a warning" />
     <MESSAGE value="Added `print` to Console" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added `print` to Console" />
+    <MESSAGE value="Added a default `help` command&#10;Made some little changes in the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a default `help` command&#10;Made some little changes in the code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

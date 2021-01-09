@@ -5,7 +5,6 @@ use std::io::{stdout, Write};
 pub mod traits;
 
 pub use crate::traits::*;
-use std::ops::Add;
 
 struct NErrorHandler;
 
@@ -30,7 +29,7 @@ struct NHelpCommand {
 }
 
 impl NHelpCommand {
-    fn new(commands_register: &CommandsRegister) -> Self {
+    fn new(commands_register: &'static CommandsRegister) -> Self {
         NHelpCommand { commands_register }
     }
 }
