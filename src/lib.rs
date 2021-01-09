@@ -30,7 +30,9 @@ pub struct NHelpCommand<'a> {
 
 impl NHelpCommand<'_> {
     pub fn new(commands_register: &'static CommandsRegister) -> Self {
-        NHelpCommand { commands: &commands_register.commands }
+        NHelpCommand {
+            commands: &commands_register.commands,
+        }
     }
 
     fn get_command(&self, command_str: &str) -> Option<&Box<dyn Command>> {
@@ -59,7 +61,7 @@ impl Command for NHelpCommand<'_> {
     }
 
     fn get_help(&self) -> &str {
-"Get help for all commands:\
+        "Get help for all commands:\
 How to use: `help [command]`\
 Aliases: `h` and `?`"
     }
@@ -74,13 +76,11 @@ Aliases: `h` and `?`"
                 content.push_str("\n\n");
             }
             Console::print(content);
-        }
-        else if args.len() == 1 {
+        } else if args.len() == 1 {
             let command: &Box<dyn Command>;
             if let Some(c) = self.get_command(args[0]) {
                 command = c;
-            }
-            else {
+            } else {
                 return;
             }
             let mut content = String::new();
@@ -100,7 +100,10 @@ pub struct CommandsRegister {
 
 impl CommandsRegister {
     pub fn new() -> CommandsRegister {
-        CommandsRegister {commands: vec![], error_handler: Box::new(NErrorHandler::new()) }
+        CommandsRegister {
+            commands: vec![],
+            error_handler: Box::new(NErrorHandler::new()),
+        }
     }
 
     pub fn get_error_handler(&self) -> &dyn ErrorHandler {
@@ -173,7 +176,10 @@ pub struct Console {
 
 impl Console {
     pub fn new(prompt: String, commands_register: CommandsRegister) -> Console {
-        Console { prompt, commands_register }
+        Console {
+            prompt,
+            commands_register,
+        }
     }
 
     pub fn log(log_type: LogTypes, message: String) {
@@ -207,11 +213,12 @@ impl Console {
         let handled = self.commands_register.check_input(input);
 
         if !handled {
-            self.commands_register.get_error_handler().wrong_command(command);
+            self.commands_register
+                .get_error_handler()
+                .wrong_command(command);
         }
     }
 }
 
 #[cfg(test)]
-mod tests {
-}
+mod tests {}
