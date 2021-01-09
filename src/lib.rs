@@ -24,17 +24,32 @@ impl ErrorHandler for NErrorHandler {
     }
 }
 
-struct NHelpCommand {
-    commands_register: &'static CommandsRegister,
+pub struct NHelpCommand<'a> {
+    commands: &'a Vec<Box<dyn Command>>,
 }
 
-impl NHelpCommand {
-    fn new(commands_register: &'static CommandsRegister) -> Self {
-        NHelpCommand { commands_register }
+impl NHelpCommand<'_> {
+    pub fn new(commands_register: &'static CommandsRegister) -> Self {
+        NHelpCommand { commands: &commands_register.commands }
+    }
+
+    fn get_command(&self, command_str: &str) -> Option<&Box<dyn Command>> {
+        for command in self.commands {
+            if command.get_command_name() == command_str {
+                return Some(command);
+            }
+            for alias in command.get_command_alias() {
+                if alias == command_str {
+                    return Some(command);
+                }
+            }
+        }
+
+        None
     }
 }
 
-impl Command for NHelpCommand {
+impl Command for NHelpCommand<'_> {
     fn get_command_name(&self) -> &str {
         "help"
     }
@@ -52,7 +67,7 @@ Aliases: `h` and `?`"
     fn on_command(&self, args: Vec<&str>) {
         if args.len() < 1 {
             let mut content = String::new();
-            for command in self.commands_register.commands {
+            for command in self.commands {
                 content.push_str(command.get_command_name());
                 content.push('\n');
                 content.push_str(command.get_help());
@@ -61,12 +76,13 @@ Aliases: `h` and `?`"
             Console::print(content);
         }
         else if args.len() == 1 {
-            let command = self.commands_register.get_command_from_command_name(args[0]).unwrap_or_else(|| {
-               self.commands_register.get_command_from_command_alias(args[0]).unwrap_or_else(|| {
-                   Console::log(LogTypes::ERR, format!("Error: no {} found", args[0]));
-                   return;
-               })
-            });
+            let command: &Box<dyn Command>;
+            if let Some(c) = self.get_command(args[0]) {
+                command = c;
+            }
+            else {
+                return;
+            }
             let mut content = String::new();
             content.push_str(command.get_command_name());
             content.push('\n');
@@ -95,20 +111,15 @@ impl CommandsRegister {
         self.error_handler = Box::new(error_handler);
     }
 
-    pub fn get_command_from_command_name(&self, command_name: &str) -> Option<&Box<dyn Command>> {
+    pub fn get_command(&self, command_str: &str) -> Option<&Box<dyn Command>> {
         for command in &self.commands {
-           if command.get_command_name() == command_name {
-               return Some(command);
-           }
-        }
-
-        None
-    }
-
-    pub fn get_command_from_command_alias(&self, alias: &str) -> Option<&Box<dyn Command>> {
-        for command in &self.commands {
-            if command.get_command_alias().contains(&alias) {
+            if command.get_command_name() == command_str {
                 return Some(command);
+            }
+            for alias in command.get_command_alias() {
+                if alias == command_str {
+                    return Some(command);
+                }
             }
         }
 
@@ -131,7 +142,7 @@ impl CommandsRegister {
         self.commands.push(Box::new(command));
     }
 
-    pub fn check_input(&self, mut input: String) -> bool {
+    pub fn check_input(&self, input: String) -> bool {
         let mut input = input.split_whitespace();
         let command_or_alias = input.next().unwrap();
 
@@ -140,11 +151,7 @@ impl CommandsRegister {
             args.push(arg);
         }
 
-        if let Some(command) = self.get_command_from_command_name(command_or_alias) {
-            command.on_command(args);
-            return true;
-        }
-        else if let Some(command) = self.get_command_from_command_alias(command_or_alias) {
+        if let Some(command) = self.get_command(command_or_alias) {
             command.on_command(args);
             return true;
         }
