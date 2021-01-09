@@ -37,7 +37,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Added `print` to Console">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/traits.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/traits.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +141,11 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Cargo.Test" />
       <item itemvalue="Cargo.Package" />
@@ -162,7 +170,7 @@
       <workItem from="1606385066395" duration="140000" />
       <workItem from="1610035403865" duration="3054000" />
       <workItem from="1610135347540" duration="1346000" />
-      <workItem from="1610224232428" duration="153000" />
+      <workItem from="1610224232428" duration="2336000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -318,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610224380064</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added `print` to Console">
+      <created>1610224388802</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1610224388802</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

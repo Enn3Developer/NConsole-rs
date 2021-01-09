@@ -5,6 +5,7 @@ use std::io::{stdout, Write};
 pub mod traits;
 
 pub use crate::traits::*;
+use std::ops::Add;
 
 struct NErrorHandler;
 
@@ -21,6 +22,59 @@ impl ErrorHandler for NErrorHandler {
 
     fn wrong_command(&self, command: &str) {
         Console::log(LogTypes::ERR, format!("{}: not a valid command", command));
+    }
+}
+
+struct NHelpCommand {
+    commands_register: &'static CommandsRegister,
+}
+
+impl NHelpCommand {
+    fn new(commands_register: &CommandsRegister) -> Self {
+        NHelpCommand { commands_register }
+    }
+}
+
+impl Command for NHelpCommand {
+    fn get_command_name(&self) -> &str {
+        "help"
+    }
+
+    fn get_command_alias(&self) -> Vec<&str> {
+        vec!["h", "?"]
+    }
+
+    fn get_help(&self) -> &str {
+"Get help for all commands:\
+How to use: `help [command]`\
+Aliases: `h` and `?`"
+    }
+
+    fn on_command(&self, args: Vec<&str>) {
+        if args.len() < 1 {
+            let mut content = String::new();
+            for command in self.commands_register.commands {
+                content.push_str(command.get_command_name());
+                content.push('\n');
+                content.push_str(command.get_help());
+                content.push_str("\n\n");
+            }
+            Console::print(content);
+        }
+        else if args.len() == 1 {
+            let command = self.commands_register.get_command_from_command_name(args[0]).unwrap_or_else(|| {
+               self.commands_register.get_command_from_command_alias(args[0]).unwrap_or_else(|| {
+                   Console::log(LogTypes::ERR, format!("Error: no {} found", args[0]));
+                   return;
+               })
+            });
+            let mut content = String::new();
+            content.push_str(command.get_command_name());
+            content.push('\n');
+            content.push_str(command.get_help());
+            content.push_str("\n\n");
+            Console::print(content);
+        }
     }
 }
 
@@ -43,25 +97,23 @@ impl CommandsRegister {
     }
 
     pub fn get_command_from_command_name(&self, command_name: &str) -> Option<&Box<dyn Command>> {
-        let mut command_return = None;
         for command in &self.commands {
            if command.get_command_name() == command_name {
-               command_return = Some(command);
+               return Some(command);
            }
         }
 
-        command_return
+        None
     }
 
     pub fn get_command_from_command_alias(&self, alias: &str) -> Option<&Box<dyn Command>> {
-        let mut command_return = None;
         for command in &self.commands {
             if command.get_command_alias().contains(&alias) {
-                command_return = Some(command);
+                return Some(command);
             }
         }
 
-        command_return
+        None
     }
 
     pub fn start(&self) {
@@ -81,11 +133,7 @@ impl CommandsRegister {
     }
 
     pub fn check_input(&self, mut input: String) -> bool {
-        let mut handled = false;
-
-        input = input.to_lowercase();
         let mut input = input.split_whitespace();
-
         let command_or_alias = input.next().unwrap();
 
         let mut args: Vec<&str> = vec![];
@@ -95,16 +143,14 @@ impl CommandsRegister {
 
         if let Some(command) = self.get_command_from_command_name(command_or_alias) {
             command.on_command(args);
-            handled = true;
+            return true;
         }
-        else {
-            if let Some(command) = self.get_command_from_command_alias(command_or_alias) {
-                command.on_command(args);
-                handled = true;
-            }
+        else if let Some(command) = self.get_command_from_command_alias(command_or_alias) {
+            command.on_command(args);
+            return true;
         }
 
-        handled
+        false
     }
 }
 
