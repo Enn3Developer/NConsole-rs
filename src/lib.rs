@@ -132,6 +132,10 @@ impl Console {
         }
     }
 
+    pub fn print(message: String) {
+        println!("{}", message);
+    }
+
     pub fn update(&self) {
         let mut input = String::new();
         print!("{}", self.prompt);

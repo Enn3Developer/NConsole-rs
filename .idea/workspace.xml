@@ -36,11 +36,9 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Fixed a panic where if the input was void">
+    <list default="true" id="1d229af1-7c4f-4992-8db9-21d48c5c95f1" name="Default Changelist" comment="Added error handling and fixing a warning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/traits.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/traits.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +162,8 @@
       <workItem from="1606376653522" duration="8108000" />
       <workItem from="1606385066395" duration="140000" />
       <workItem from="1610035403865" duration="3054000" />
-      <workItem from="1610135347540" duration="1136000" />
+      <workItem from="1610135347540" duration="1346000" />
+      <workItem from="1610224232428" duration="101000" />
     </task>
     <task id="LOCAL-00001" summary="Added simple functionality">
       <created>1606382483385</created>
@@ -306,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610037851817</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Added error handling and fixing a warning">
+      <created>1610136518661</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1610136518661</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +354,8 @@
     <MESSAGE value="Now traits are public and not private anymore" />
     <MESSAGE value="Fixed a panic where if the input was void and flushed stdout so now the prompt is working correctly" />
     <MESSAGE value="Fixed a panic where if the input was void" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a panic where if the input was void" />
+    <MESSAGE value="Added error handling and fixing a warning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added error handling and fixing a warning" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
