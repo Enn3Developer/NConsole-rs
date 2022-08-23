@@ -35,14 +35,14 @@ impl NHelpCommand<'_> {
         }
     }
 
-    fn get_command(&self, command_str: &str) -> Option<&Box<dyn Command>> {
+    fn get_command(&self, command_str: &str) -> Option<&dyn Command> {
         for command in self.commands {
             if command.get_command_name() == command_str {
-                return Some(command);
+                return Some(command.as_ref());
             }
             for alias in command.get_command_alias() {
                 if alias == command_str {
-                    return Some(command);
+                    return Some(command.as_ref());
                 }
             }
         }
@@ -66,29 +66,32 @@ How to use: `help [command]`\
 Aliases: `h` and `?`"
     }
 
-    fn on_command(&self, args: Vec<&str>) {
-        if args.len() < 1 {
-            let mut content = String::new();
-            for command in self.commands {
+    fn on_command(&mut self, args: Vec<&str>) {
+        match args.len() {
+            0 => {
+                let mut content = String::new();
+                for command in self.commands {
+                    content.push_str(command.get_command_name());
+                    content.push('\n');
+                    content.push_str(command.get_help());
+                    content.push_str("\n\n");
+                }
+                Console::print(content);
+            }
+            1 => {
+                let command = if let Some(c) = self.get_command(args[0]) {
+                    c
+                } else {
+                    return;
+                };
+                let mut content = String::new();
                 content.push_str(command.get_command_name());
                 content.push('\n');
                 content.push_str(command.get_help());
                 content.push_str("\n\n");
+                Console::print(content);
             }
-            Console::print(content);
-        } else if args.len() == 1 {
-            let command: &Box<dyn Command>;
-            if let Some(c) = self.get_command(args[0]) {
-                command = c;
-            } else {
-                return;
-            }
-            let mut content = String::new();
-            content.push_str(command.get_command_name());
-            content.push('\n');
-            content.push_str(command.get_help());
-            content.push_str("\n\n");
-            Console::print(content);
+            _ => {}
         }
     }
 }
@@ -96,6 +99,12 @@ Aliases: `h` and `?`"
 pub struct CommandsRegister {
     commands: Vec<Box<dyn Command>>,
     error_handler: Box<dyn ErrorHandler>,
+}
+
+impl Default for CommandsRegister {
+    fn default() -> Self {
+        Self::new()
+    }
 }
 
 impl CommandsRegister {
@@ -114,8 +123,8 @@ impl CommandsRegister {
         self.error_handler = Box::new(error_handler);
     }
 
-    pub fn get_command(&self, command_str: &str) -> Option<&Box<dyn Command>> {
-        for command in &self.commands {
+    pub fn get_command(&mut self, command_str: &str) -> Option<&mut Box<dyn Command>> {
+        for command in self.commands.iter_mut() {
             if command.get_command_name() == command_str {
                 return Some(command);
             }
@@ -129,14 +138,14 @@ impl CommandsRegister {
         None
     }
 
-    pub fn start(&self) {
-        self.commands.iter().for_each(|command| {
+    pub fn start(&mut self) {
+        self.commands.iter_mut().for_each(|command| {
             command.start();
         });
     }
 
-    pub fn end(&self) {
-        self.commands.iter().for_each(|command| {
+    pub fn end(&mut self) {
+        self.commands.iter_mut().for_each(|command| {
             command.end();
         });
     }
@@ -145,7 +154,7 @@ impl CommandsRegister {
         self.commands.push(Box::new(command));
     }
 
-    pub fn check_input(&self, input: String) -> bool {
+    pub fn check_input(&mut self, input: String) -> bool {
         let mut input = input.split_whitespace();
         let command_or_alias = input.next().unwrap();
 
@@ -194,7 +203,7 @@ impl Console {
         println!("{}", message);
     }
 
-    pub fn update(&self) {
+    pub fn update(&mut self) {
         let mut input = String::new();
         print!("{}", self.prompt);
         stdout().flush().unwrap();

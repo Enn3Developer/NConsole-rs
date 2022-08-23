@@ -4,14 +4,14 @@ pub trait Command {
 
     fn get_help(&self) -> &str;
 
-    fn start(&self) {
+    fn start(&mut self) {
         unimplemented!();
     }
-    fn end(&self) {
+    fn end(&mut self) {
         unimplemented!();
     }
 
-    fn on_command(&self, args: Vec<&str>);
+    fn on_command(&mut self, args: Vec<&str>);
 }
 
 pub trait ErrorHandler {
