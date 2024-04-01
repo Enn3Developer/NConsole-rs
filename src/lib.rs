@@ -1,129 +1,46 @@
-use colored::*;
+use crate::command::{Command, GenericCommand};
+use crate::error_handler::{ErrorHandler, NErrorHandler};
+use colored::Colorize;
 use std::io;
 use std::io::{stdout, Write};
 
-pub mod traits;
+pub mod command;
+pub mod error_handler;
 
-pub use crate::traits::*;
-
-struct NErrorHandler;
-
-impl NErrorHandler {
-    fn new() -> Self {
-        NErrorHandler
+pub fn log(log_type: LogTypes, message: String) {
+    match log_type {
+        LogTypes::INFO => println!("{} {}", "[INFO]".green(), message),
+        LogTypes::WARN => println!("{} {}", "[WARNING]".yellow(), message),
+        LogTypes::ERR => println!("{} {}", "[ERROR]".red(), message),
     }
 }
 
-impl ErrorHandler for NErrorHandler {
-    fn input_void(&self) {
-        unimplemented!()
-    }
-
-    fn wrong_command(&self, command: &str) {
-        Console::log(LogTypes::ERR, format!("{}: not a valid command", command));
-    }
+pub struct CommandsRegister<E> {
+    commands: Vec<GenericCommand>,
+    error_handler: E,
+    help_command: bool,
 }
 
-pub struct NHelpCommand<'a> {
-    commands: &'a Vec<Box<dyn Command>>,
-}
-
-impl NHelpCommand<'_> {
-    pub fn new(commands_register: &'static CommandsRegister) -> Self {
-        NHelpCommand {
-            commands: &commands_register.commands,
-        }
-    }
-
-    fn get_command(&self, command_str: &str) -> Option<&dyn Command> {
-        for command in self.commands {
-            if command.get_command_name() == command_str {
-                return Some(command.as_ref());
-            }
-            for alias in command.get_command_alias() {
-                if alias == command_str {
-                    return Some(command.as_ref());
-                }
-            }
-        }
-
-        None
-    }
-}
-
-impl Command for NHelpCommand<'_> {
-    fn get_command_name(&self) -> &str {
-        "help"
-    }
-
-    fn get_command_alias(&self) -> Vec<&str> {
-        vec!["h", "?"]
-    }
-
-    fn get_help(&self) -> &str {
-        "Get help for all commands:\
-How to use: `help [command]`\
-Aliases: `h` and `?`"
-    }
-
-    fn on_command(&mut self, args: Vec<&str>) {
-        match args.len() {
-            0 => {
-                let mut content = String::new();
-                for command in self.commands {
-                    content.push_str(command.get_command_name());
-                    content.push('\n');
-                    content.push_str(command.get_help());
-                    content.push_str("\n\n");
-                }
-                Console::print(content);
-            }
-            1 => {
-                let command = if let Some(c) = self.get_command(args[0]) {
-                    c
-                } else {
-                    return;
-                };
-                let mut content = String::new();
-                content.push_str(command.get_command_name());
-                content.push('\n');
-                content.push_str(command.get_help());
-                content.push_str("\n\n");
-                Console::print(content);
-            }
-            _ => {}
-        }
-    }
-}
-
-pub struct CommandsRegister {
-    commands: Vec<Box<dyn Command>>,
-    error_handler: Box<dyn ErrorHandler>,
-}
-
-impl Default for CommandsRegister {
+impl Default for CommandsRegister<NErrorHandler> {
     fn default() -> Self {
-        Self::new()
+        Self::new(NErrorHandler::new(), true)
     }
 }
 
-impl CommandsRegister {
-    pub fn new() -> CommandsRegister {
-        CommandsRegister {
+impl<E: ErrorHandler> CommandsRegister<E> {
+    pub fn new(error_handle: E, help_command: bool) -> Self {
+        Self {
             commands: vec![],
-            error_handler: Box::new(NErrorHandler::new()),
+            error_handler: error_handle,
+            help_command,
         }
     }
 
-    pub fn get_error_handler(&self) -> &dyn ErrorHandler {
-        self.error_handler.as_ref()
+    pub fn get_error_handler(&self) -> &E {
+        &self.error_handler
     }
 
-    pub fn set_error_handler(&mut self, error_handler: impl ErrorHandler + 'static) {
-        self.error_handler = Box::new(error_handler);
-    }
-
-    pub fn get_command(&mut self, command_str: &str) -> Option<&mut Box<dyn Command>> {
+    pub fn get_command(&mut self, command_str: &str) -> Option<&mut GenericCommand> {
         for command in self.commands.iter_mut() {
             if command.get_command_name() == command_str {
                 return Some(command);
@@ -150,8 +67,8 @@ impl CommandsRegister {
         });
     }
 
-    pub fn register_command(&mut self, command: impl Command + 'static) {
-        self.commands.push(Box::new(command));
+    pub fn register_command(&mut self, command: GenericCommand) {
+        self.commands.push(command);
     }
 
     pub fn check_input(&mut self, input: String) -> bool {
@@ -165,10 +82,46 @@ impl CommandsRegister {
 
         if let Some(command) = self.get_command(command_or_alias) {
             command.on_command(args);
-            return true;
+            true
+        } else if self.help_command && Self::is_help_command(command_or_alias) {
+            self.help(&args);
+            true
+        } else {
+            false
         }
+    }
 
-        false
+    pub fn help(&mut self, args: &[&str]) {
+        match args.len() {
+            0 => {
+                let mut content = String::new();
+                for command in &self.commands {
+                    content.push_str(command.get_command_name());
+                    content.push('\n');
+                    content.push_str(command.get_help());
+                    content.push_str("\n\n");
+                }
+                println!("{content}");
+            }
+            1 => {
+                let command = if let Some(c) = self.get_command(args[0]) {
+                    c
+                } else {
+                    return;
+                };
+                let mut content = String::new();
+                content.push_str(command.get_command_name());
+                content.push('\n');
+                content.push_str(command.get_help());
+                content.push_str("\n\n");
+                println!("{content}");
+            }
+            _ => {}
+        }
+    }
+
+    fn is_help_command(command_str: &str) -> bool {
+        command_str == "help" || command_str == "h" || command_str == "?"
     }
 }
 
@@ -178,29 +131,17 @@ pub enum LogTypes {
     ERR,
 }
 
-pub struct Console {
+pub struct Console<E: ErrorHandler> {
     prompt: String,
-    commands_register: CommandsRegister,
+    commands_register: CommandsRegister<E>,
 }
 
-impl Console {
-    pub fn new(prompt: String, commands_register: CommandsRegister) -> Console {
-        Console {
+impl<E: ErrorHandler> Console<E> {
+    pub fn new(prompt: String, commands_register: CommandsRegister<E>) -> Self {
+        Self {
             prompt,
             commands_register,
         }
-    }
-
-    pub fn log(log_type: LogTypes, message: String) {
-        match log_type {
-            LogTypes::INFO => println!("{} {}", "[INFO]".green(), message),
-            LogTypes::WARN => println!("{} {}", "[WARNING]".yellow(), message),
-            LogTypes::ERR => println!("{} {}", "[ERROR]".red(), message),
-        }
-    }
-
-    pub fn print(message: String) {
-        println!("{}", message);
     }
 
     pub fn update(&mut self) {
